@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hyperplane Secret Sharing</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Hyperplane Secret Sharing</h1>
+        <p class="description">
+            Implementation of an n-variable secret sharing scheme based on solving linear equations. 
+            You need at least n shares to reconstruct the secret.
+        </p>
+        
+        <div class="section-box">
+            <h2>1. Set Parameters & Generate Shares</h2>
+            <div class="input-grid">
+                <label for="n-variables">Number of Variables :</label>
+                <input type="number" id="n-variables" min="2" value="3" onchange="resetState(false)">
+                
+                <label for="secret-point">Secret Point (space-separated):</label>
+                <input type="text" id="secret-point" placeholder="e.g., 5 10 2">
+                
+                <label for="num-shares">Total Number of Shares :</label>
+                <input type="number" id="num-shares" min="2" value="5" onchange="resetState(false)">
+            </div>
+            <button id="generate-button" onclick="generateShares()">Generate Shares</button>
+            <button id="reset-button" onclick="resetState(true)">Reset</button>
+        </div>
+
+        <hr>
+
+        <div class="section-box">
+            <h2>2. Generated Shares (click to select)</h2>
+            <div id="shares-output" class="output-area">Shares will appear here after generation.</div>
+            <p id="selection-info" class="info-text"></p>
+        </div>
+
+        <hr>
+
+        <div class="section-box">
+            <h2>3. Reconstruct Secret</h2>
+            <button id="reconstruct-button" onclick="reconstructSecret()">Reconstruct Secret</button>
+        </div>
+
+        <hr>
+
+        <div class="section-box">
+            <h2>4. Result</h2>
+            <div id="result-output" class="output-area"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
